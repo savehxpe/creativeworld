@@ -47,17 +47,19 @@ DISABLE_AUTOMATION_FLAGS = [
 LIGHTHOUSE_CATEGORIES = ["performance", "accessibility", "best-practices", "seo"]
 LIGHTHOUSE_DEVICE = "mobile"
 
-# PDF Generation
+# Company Info
 COMPANY_NAME = "Outworld Creative"
-COMPANY_TAGLINE = "AI-Powered Video Advertising Studio"
+COMPANY_TAGLINE = "Video Ads and Brand Sound"
 COMPANY_CONTACT = "team@outworldcreative.com"
 COMPANY_WEBSITE = "https://outworldcreative.com"
-BRAND_PRIMARY_COLOR = (0.12, 0.12, 0.12)       # near-black
-BRAND_ACCENT_COLOR = (0.85, 0.20, 0.20)          # deep red
+
+# Brand Colors
+BRAND_PRIMARY_COLOR = (0.05, 0.05, 0.05)       # near-black
+BRAND_ACCENT_COLOR = (0.95, 0.25, 0.25)          # deep red
 BRAND_TEXT_COLOR = (0.2, 0.2, 0.2)
 BRAND_LIGHT_BG = (0.97, 0.97, 0.97)
 
-# Creative Director Settings
+# Internal Pricing (never shown publicly)
 CREATIVE_DIAGNOSIS_PRICE_RANGE = "R1,500 - R3,500"
 MONTHLY_RETAINER_RANGE = "R8,000 - R20,000"
 CAMPAIGN_STRATEGY_RANGE = "R15,000 - R40,000"
@@ -81,3 +83,53 @@ FOLLOW_UP_DAYS = [3, 7, 14]
 DISCOVERY_CALL_DURATION_MIN = 20
 DISCOVERY_CALL_DURATION_MAX = 30
 PROPOSAL_DELIVERY_HOURS = 48
+
+# Signal Desk Content Engine
+SIGNAL_DESK_PILLARS = [
+    "creative_intelligence",
+    "ad_breakdowns",
+    "brand_sound",
+    "creator_economy_news",
+    "industry_opportunities",
+    "savehxpe_notes",
+    "spec_ad_lab_drops",
+    "remote_studio_build",
+    "comparison_desk"
+]
+SIGNAL_DESK_DAILY_POSTS = 2  # 1 X post + 1 Instagram carousel
+SIGNAL_DESK_SOFT_CTAS = [
+    "Outworld is building for this.",
+    "This is why brands need creative direction, not just content.",
+    "Request a Creative Diagnosis.",
+    "Most brands have a look. Very few have a sound.",
+    "Built from Africa. Designed for the world.",
+    "Stop using random sounds for serious ads.",
+    "A strong ad needs three things: a hook, a visual, and a sound people remember.",
+    "We make ads that look good, sound right, and sell the idea fast."
+]
+
+# Logo Carousel Assets (local saveHXPE directory)
+LOGO_PARTNER_DIR = "/Users/tshepomotolo/seohxpe/public/brand/partners"
+LOGO_APPEARANCE_DIR = "/Users/tshepomotolo/seohxpe/public/brand/appearances"
+LOGO_OUTWORLD_PATH = "/Users/tshepomotolo/seohxpe/public/brand/logos/outworld_logo.webp"
+
+PARTNER_LOGOS = [
+    ("Adidas", "adidas/Adidas_logo.webp"),
+    ("Sportscene", "sportscene/sportscene_logo.webp"),
+    ("KFC", "kfc/KFC_logo.webp"),
+    ("Empire", "empire/Empire_Distribution_logo.webp"),
+    ("STEM", "stem/stem_logo.webp"),
+    ("Radical", "radical/radical_logo.webp"),
+    ("SinceThe80s", "since-the-80s/sincethe80s_logo.webp"),
+    ("365", "365/365_logo.webp"),
+]
+
+APPEARANCE_LOGOS = [
+    ("MTV", "mtv/Mtv.webp"),
+    ("News24", "news24/News24.webp"),
+    ("SABC", "sabc/SABC-channel-africa.webp"),
+    ("OkayAfrica", "okayafrica/OkayAfrica.webp"),
+    ("Channel O", "channelO/Channel-o.webp"),
+    ("Trace", "trace/trace.webp"),
+    ("HNHH", "hnhh/hnhh.webp"),
+]

@@ -1,7 +1,7 @@
 # Outreach Templates
 
 Outworld Creative  
-AI-powered video advertising studio  
+Remote video + brand sound studio  
 Branch: creative-director
 
 ---
@@ -31,6 +31,39 @@ Every message must:
 | Cold Email | Hospitality | 10 | Brand audit offer |
 
 **Total: 30 outreach messages**
+
+**Primary angles:**
+1. Spec ad preview (visual creative direction)
+2. Brand sound gap (audio identity — most brands have visuals but no sound)
+3. Creative diagnosis (strategic audit showing revenue gaps)
+
+---
+
+## Brand Sound Angle (All Niches)
+
+**The brand sound angle is your sharpest hook.** Most brands have never thought about sound identity. Use it to stand out.
+
+**Key line:** "Your ads don't have a sound. Your brand has no audio memory. I can fix that."
+
+**How to use:**
+- Open with the sound gap (not the visual gap)
+- Mention they use random trending sounds
+- Offer to create a custom brand sound preview
+- This positions you differently from every visual-only agency
+
+**Example DM:**
+```
+Hey [Name], I'm Tshepo from Outworld Creative.
+
+I came across your brand and noticed something: your visuals are solid, but your ads have no sound identity. You're using random trending audio, which means every ad starts from zero.
+
+I put together a quick brand sound preview showing what your [restaurant/fashion/hotel] could sound like with a consistent audio identity.
+
+Not a pitch — just a preview. Mind if I send it through?
+
+Tshepo
+Creative Director, Outworld Creative
+```
 
 ---
 

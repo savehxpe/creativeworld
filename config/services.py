@@ -75,6 +75,27 @@ SERVICES = {
         "pitch_angle": "turn your launch into a cultural moment with campaign direction that sells out",
         "ideal_for": "Brands with specific launches, drops, or seasonal campaigns that need premium creative direction"
     },
+    "brand_sound": {
+        "name": "Brand Sound",
+        "price_range": "Custom quote",
+        "description": "Short, memorable sounds for ads, product drops, Reels, TikToks, launches and campaigns. Built to make your brand easier to remember.",
+        "includes": [
+            "5-second brand tags",
+            "15-second ad jingles",
+            "Sounds for Reels and TikTok",
+            "Product reveal sounds",
+            "Launch sounds",
+            "Campaign music ideas"
+        ],
+        "trigger_conditions": [
+            "no_sound_identity",
+            "uses_random_trending_sounds",
+            "wants_brand_recognition",
+            "needs_sonic_consistency"
+        ],
+        "pitch_angle": "make your brand recognizable before the logo appears",
+        "ideal_for": "Brands that want to own their sound, not borrow from trending audio"
+    },
     "brand_world_system": {
         "name": "Brand World System",
         "price_range": "R10,000 - R25,000",
@@ -97,6 +118,27 @@ SERVICES = {
         ],
         "pitch_angle": "give your brand a creative identity so premium that people recognize your content before they see your name",
         "ideal_for": "Brands that need to elevate their entire creative presence and build consistent premium identity"
+    },
+    "video_ads": {
+        "name": "Video Ads",
+        "price_range": "Custom quote",
+        "description": "Short-form video ads that hook, convert, and build brand memory. 5-second hooks, 15-second social ads, UGC-style scripts, launch videos.",
+        "includes": [
+            "5-second hook concepts",
+            "15-second social ad scripts",
+            "UGC-style scripts",
+            "Campaign visuals",
+            "Launch videos",
+            "Product desire ads"
+        ],
+        "trigger_conditions": [
+            "weak_hooks",
+            "no_video_strategy",
+            "low_conversion",
+            "needs_short_form_ads"
+        ],
+        "pitch_angle": "turn scrolls into bookings, orders, and enquiries with video ads that stop the thumb",
+        "ideal_for": "Brands that need high-converting short-form video content"
     }
 }
 
