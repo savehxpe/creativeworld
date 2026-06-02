@@ -1,72 +1,110 @@
 """
-Service offerings for Outworld Lead Engine.
+Service offerings for Outworld Creative — Creative Director Branch.
 Embedded into audit logic to recommend the right service.
+No prices shown publicly. Internal ranges only.
 """
 
 SERVICES = {
-    "website": {
-        "name": "Website Design",
-        "price": "R2,000",
-        "description": "3-5 page mobile-responsive website (Home, About, Gallery/Work, Contact)",
+    "creative_diagnosis": {
+        "name": "Creative Diagnosis",
+        "price_range": "R1,500 - R3,500",
+        "description": "One-time strategic creative audit. Full brand analysis, 3 tailored spec ad concepts, content gap analysis, 30-day content system map, and revenue projection.",
         "includes": [
-            "Mobile-responsive design",
-            "Basic SEO setup",
-            "Contact form integration",
-            "Social media links",
-            "2 rounds of revisions"
+            "Brand creative audit (current state vs. potential)",
+            "3 spec ad concepts tailored to your brand",
+            "Content gap analysis",
+            "30-day content system map",
+            "Revenue projection based on creative improvements",
+            "Competitor creative gap report",
+            "Delivered as branded PDF within 48 hours"
         ],
         "trigger_conditions": [
-            "no_website",
-            "broken_website",
-            "poor_mobile_experience",
-            "slow_performance",
-            "outdated_design"
+            "unsure_where_to_start",
+            "wants_proof_before_commitment",
+            "has_budget_constraints",
+            "needs_clarity_on_gaps"
         ],
-        "pitch_angle": "get you a proper online home that converts visitors into fans/customers"
+        "pitch_angle": "start with clarity — understand exactly where your brand is leaking revenue and what the 200% version looks like",
+        "ideal_for": "Brands that want to see the gap before investing in ongoing direction"
     },
-    "branding": {
-        "name": "Branding & Graphics",
-        "price": "Custom quote",
-        "description": "Logo refinement, colour palette, typography, brand guidelines",
+    "monthly_direction": {
+        "name": "Monthly Creative Direction",
+        "price_range": "R8,000 - R20,000/month",
+        "description": "Ongoing creative department for brands that need consistent premium creative without hiring full-time. Monthly campaign concepts, ad scripts, content calendars, and performance reviews.",
         "includes": [
-            "Logo concepts",
-            "Colour palette",
-            "Typography system",
-            "Social media templates",
+            "8-12 short-form ad concepts per month",
+            "4 polished spec/mock ad visuals",
+            "4 scripts for 5-15 second videos",
+            "1 monthly campaign idea with full creative direction",
+            "1 offer/upsell strategy",
+            "1 competitor gap report",
+            "1 content calendar (30-day rollout)",
+            "1 performance/next steps review",
+            "Brand world system and visual rules",
+            "Unlimited email/Slack access for creative direction"
+        ],
+        "trigger_conditions": [
+            "needs_consistent_content",
+            "no_in_house_creative_team",
+            "wants_campaign_system",
+            "ready_for_monthly_retainer"
+        ],
+        "pitch_angle": "get an external creative department that turns your brand into a demand-generating machine",
+        "ideal_for": "Brands ready for consistent monthly creative direction and campaign execution"
+    },
+    "campaign_strategy": {
+        "name": "Campaign Strategy",
+        "price_range": "R15,000 - R40,000",
+        "description": "Project-based deep-dive for launches, drops, collections, or seasonal pushes. Full campaign concept, creative direction deck, shot lists, and launch timeline.",
+        "includes": [
+            "Full campaign concept and big idea",
+            "Creative direction deck",
+            "Shot lists and moodboards",
+            "Launch timeline and rollout plan",
+            "Multi-platform adaptation strategy",
+            "Influencer seeding strategy",
+            "UGC campaign architecture",
+            "Performance KPIs and measurement plan"
+        ],
+        "trigger_conditions": [
+            "has_launch_coming",
+            "needs_drop_campaign",
+            "seasonal_push_needed",
+            "one_time_project"
+        ],
+        "pitch_angle": "turn your launch into a cultural moment with campaign direction that sells out",
+        "ideal_for": "Brands with specific launches, drops, or seasonal campaigns that need premium creative direction"
+    },
+    "brand_world_system": {
+        "name": "Brand World System",
+        "price_range": "R10,000 - R25,000",
+        "description": "Comprehensive brand creative identity system. Visual rules, campaign language, recurring content formats, and brand guidelines that make every piece of content feel premium and consistent.",
+        "includes": [
+            "Brand world creative identity",
+            "Visual rules and guidelines",
+            "Campaign language and tone of voice",
+            "Recurring content formats",
+            "Color palette and lighting direction",
+            "Typography hierarchy",
+            "Social post templates and safe zones",
             "Brand guideline PDF"
         ],
         "trigger_conditions": [
             "inconsistent_branding",
-            "no_logo",
-            "poor_visual_identity"
+            "no_brand_identity",
+            "content_looks_different_every_post",
+            "needs_premium_positioning"
         ],
-        "pitch_angle": "make your brand look as professional as your talent"
-    },
-    "seo": {
-        "name": "SEO Audit & Fix",
-        "price": "R500 – R800",
-        "description": "Technical SEO audit + on-page fixes",
-        "includes": [
-            "Lighthouse SEO score improvement",
-            "Meta tags & headings fix",
-            "Image optimization",
-            "Mobile usability fixes",
-            "Sitemap submission"
-        ],
-        "trigger_conditions": [
-            "low_seo_score",
-            "missing_meta_tags",
-            "poor_mobile_seo"
-        ],
-        "pitch_angle": "make sure Google actually finds you when people search"
+        "pitch_angle": "give your brand a creative identity so premium that people recognize your content before they see your name",
+        "ideal_for": "Brands that need to elevate their entire creative presence and build consistent premium identity"
     }
 }
 
 
-def get_recommended_services(audit_flags):
+def get_recommended_services(audit_flags, niche_key="restaurant"):
     """
-    Given a list of audit flags, return recommended services.
-    audit_flags: list of strings like 'no_website', 'low_seo_score'
+    Given audit flags and niche, return recommended services.
+    audit_flags: list of strings
     """
     recommendations = []
     for key, service in SERVICES.items():
@@ -82,4 +120,14 @@ def get_primary_pitch(audit_flags):
     recommendations = get_recommended_services(audit_flags)
     if recommendations:
         return recommendations[0]["pitch_angle"]
-    return "level up your online presence"
+    return "transform your brand's creative direction"
+
+
+def get_service_by_key(key):
+    """Get a specific service by its key."""
+    return SERVICES.get(key)
+
+
+def get_all_services():
+    """Return all services."""
+    return SERVICES

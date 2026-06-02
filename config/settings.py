@@ -1,5 +1,5 @@
 """
-Global settings for Outworld Lead Engine.
+Global settings for Outworld Creative — Creative Director Branch.
 """
 import os
 from dotenv import load_dotenv
@@ -14,6 +14,9 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 AUDITS_DIR = os.path.join(OUTPUT_DIR, "audits")
 OUTREACH_DIR = os.path.join(OUTPUT_DIR, "outreach")
 DB_PATH = os.path.join(DATA_DIR, "leads.db")
+DOCS_DIR = os.path.join(BASE_DIR, "docs")
+LANDING_DIR = os.path.join(BASE_DIR, "landing_page")
+ASSETS_DIR = os.path.join(BASE_DIR, "assets")
 
 # API Keys
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
@@ -45,10 +48,36 @@ LIGHTHOUSE_CATEGORIES = ["performance", "accessibility", "best-practices", "seo"
 LIGHTHOUSE_DEVICE = "mobile"
 
 # PDF Generation
-COMPANY_NAME = "Outworld"
-COMPANY_TAGLINE = "Web Design & Digital Growth"
-COMPANY_CONTACT = "DM @livesavehxpe or reply here"
+COMPANY_NAME = "Outworld Creative"
+COMPANY_TAGLINE = "AI-Powered Video Advertising Studio"
+COMPANY_CONTACT = "team@outworldcreative.com"
+COMPANY_WEBSITE = "https://outworldcreative.com"
 BRAND_PRIMARY_COLOR = (0.12, 0.12, 0.12)       # near-black
 BRAND_ACCENT_COLOR = (0.85, 0.20, 0.20)          # deep red
 BRAND_TEXT_COLOR = (0.2, 0.2, 0.2)
 BRAND_LIGHT_BG = (0.97, 0.97, 0.97)
+
+# Creative Director Settings
+CREATIVE_DIAGNOSIS_PRICE_RANGE = "R1,500 - R3,500"
+MONTHLY_RETAINER_RANGE = "R8,000 - R20,000"
+CAMPAIGN_STRATEGY_RANGE = "R15,000 - R40,000"
+
+# Kie.ai Settings
+KIE_API_KEY = os.getenv("KIE_API_KEY", "")
+KIE_BASE_URL = "https://api.kie.ai/v1"
+KIE_IMAGE_MODEL = "google/nano-banana-2"
+KIE_VIDEO_MODEL = "seedance-1-5-pro"
+
+# Spec Ad Lab
+SPEC_AD_LAB_DIR = os.path.join(ASSETS_DIR, "spec-lab")
+ANIMATED_ADS = [1, 4, 7]  # Campaign numbers to animate
+
+# Outreach
+OUTREACH_CHANNELS = ["instagram_dm", "linkedin", "cold_email"]
+OUTREACH_TARGETS_PER_NICHE = 10
+FOLLOW_UP_DAYS = [3, 7, 14]
+
+# Discovery Call
+DISCOVERY_CALL_DURATION_MIN = 20
+DISCOVERY_CALL_DURATION_MAX = 30
+PROPOSAL_DELIVERY_HOURS = 48
