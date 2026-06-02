@@ -1,0 +1,6 @@
+.env
+node_modules/
+outputs/kie/
+__pycache__/
+*.pyc
+.DS_Store
