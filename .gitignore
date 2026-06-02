@@ -4,6 +4,9 @@ outputs/kie/*
 !outputs/kie/.gitkeep
 outputs/suno/*
 !outputs/suno/.gitkeep
+test-results/
+test-artifacts/
+playwright-report/
 __pycache__/
 *.pyc
 .DS_Store
