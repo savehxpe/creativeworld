@@ -1,0 +1,19 @@
+{
+  "template_name": "Restaurant Craving",
+  "niche": "Restaurants, Lounges, Cafes",
+  "use_case": "Food reveal, booking push, weekend promo",
+  "duration_seconds": 10,
+  "aspect_ratio": "9:16",
+  "clip_count": 5,
+  "timeline": [
+    { "beat": "0-2s", "label": "Hook", "visual": "Sizzle sound + extreme close-up of dish being prepared", "text": "This is why you book the table.", "audio": "Sizzle + appetizing ambient. Warm bass enters." },
+    { "beat": "2-4s", "label": "Reveal", "visual": "Wide shot of the full dish being placed on a table", "text": "[Dish Name]", "audio": "Music swells warmly" },
+    { "beat": "4-7s", "label": "Atmosphere", "visual": "Quick cuts: candles, laughter, clinking glasses, packed room", "text": "Not just dinner. The feeling.", "audio": "Full warm bed. Social ambience mixed in." },
+    { "beat": "7-9s", "label": "Scarcity", "visual": "Empty table by window. Reserved sign.", "text": "3 tables left for Saturday.", "audio": "Music drops slightly. Tension." },
+    { "beat": "9-10s", "label": "CTA", "visual": "Logo + booking link", "text": "Book before Friday.", "audio": "Warm stinger. Silence." }
+  ],
+  "cta": "Book Now",
+  "sound_direction": "Warm, appetizing, social. 100 BPM. Restaurant ambient bed with subtle bass. Fade to silence at CTA.",
+  "export_notes": "1080p, 9:16, H.264. Food must be well-lit. Keep booking link clearly visible in last frame.",
+  "client_usage": "Replace food visuals with your signature dishes. Replace text with your restaurant name and offer. Use your Brand Sound Pack."
+}

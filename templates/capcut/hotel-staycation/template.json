@@ -1,0 +1,19 @@
+{
+  "template_name": "Hotel Staycation",
+  "niche": "Hospitality",
+  "use_case": "Room reveal, view reveal, weekend escape",
+  "duration_seconds": 12,
+  "aspect_ratio": "9:16",
+  "clip_count": 5,
+  "timeline": [
+    { "beat": "0-2s", "label": "Hook", "visual": "Wide landscape or ocean view through window. Curtains gently moving.", "text": "Wake up here.", "audio": "Nature ambience. Gentle breeze. Soft pad enters." },
+    { "beat": "2-5s", "label": "Room", "visual": "Slow pan across the room. Bed, bathroom, deck.", "text": "[Property Name]", "audio": "Music builds softly. Comfortable." },
+    { "beat": "5-8s", "label": "Experience", "visual": "Coffee on deck. Pool view. Sunset. Guest smiling.", "text": "48 hours. Zero notifications.", "audio": "Full nature-infused bed. Warm." },
+    { "beat": "8-10s", "label": "Offer", "visual": "Calendar graphic. Dates highlighted. Rate displayed.", "text": "Weekend rate: 40% off.", "audio": "Music builds slightly. Positive." },
+    { "beat": "10-12s", "label": "CTA", "visual": "Logo + booking URL", "text": "Book your weekend.", "audio": "Soft stinger. Fade to calm." }
+  ],
+  "cta": "Book Your Weekend",
+  "sound_direction": "Calm, expensive, escape. 85 BPM. Nature ambience + soft pads. Warm fade at CTA.",
+  "export_notes": "1080p, 9:16, H.264. Wide shots preferred. Natural lighting only. Logo clear in final frame.",
+  "client_usage": "Replace visuals with your property. Replace text with your name and offer. Use your Brand Sound Pack."
+}

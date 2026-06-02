@@ -1,0 +1,18 @@
+{
+  "template_name": "Brand Sound",
+  "niche": "Any Brand",
+  "use_case": "3-second tag, 15-second loop, product reveal sound",
+  "duration_seconds": 12,
+  "aspect_ratio": "9:16",
+  "clip_count": 4,
+  "timeline": [
+    { "beat": "0-3s", "label": "Tag", "visual": "Logo animation or brand mark reveal. Clean. Minimal.", "text": "[Brand Name]", "audio": "3-second brand tag. Recognizable. Confident." },
+    { "beat": "3-8s", "label": "Loop", "visual": "Product or lifestyle montage. 3-4 shots. Brand world visuals.", "text": "[Tagline or value proposition]", "audio": "15-second ad loop. Seamless. Building." },
+    { "beat": "8-10s", "label": "Reveal", "visual": "Hero product reveal. Slow mo. Light flares.", "text": "[Product name or campaign name]", "audio": "Product reveal sound. Impact. Attention." },
+    { "beat": "10-12s", "label": "CTA", "visual": "Logo + URL. Clean fade.", "text": "[CTA text]", "audio": "Loop fades to tag. Memory imprint." }
+  ],
+  "cta": "Learn More",
+  "sound_direction": "Brand sound pack applied throughout: 3s tag at open, 15s loop during montage, reveal sound at product moment, tag reprise at close.",
+  "export_notes": "1080p, 9:16, H.264. Logo must be clear in first and last frames. Sound is the hero — visuals support the audio identity.",
+  "client_usage": "Replace visuals with your brand assets. Replace text with your brand copy. Use YOUR Brand Sound Pack. This template IS your sonic identity in video form."
+}

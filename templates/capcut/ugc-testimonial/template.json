@@ -1,0 +1,20 @@
+{
+  "template_name": "UGC Testimonial",
+  "niche": "Apps, Beauty, Services, Creators",
+  "use_case": "Problem → Reaction → Result → CTA",
+  "duration_seconds": 15,
+  "aspect_ratio": "9:16",
+  "clip_count": 6,
+  "timeline": [
+    { "beat": "0-3s", "label": "Problem", "visual": "Person looking at phone/camera, frustrated. Real setting.", "text": "I tried everything for [problem].", "audio": "Ambient room noise. Natural." },
+    { "beat": "3-6s", "label": "Discovery", "visual": "Person discovering the product. Candid reaction.", "text": "Then someone told me about [product].", "audio": "Gentle music enters. Curiosity." },
+    { "beat": "6-9s", "label": "Experience", "visual": "Product in use. Real results visible. No filters.", "text": "Look at this. [Specific result].", "audio": "Music builds. Positive energy." },
+    { "beat": "9-12s", "label": "Result", "visual": "Happy person. Before/after comparison.", "text": "I've been using it for [X weeks].", "audio": "Music peaks. Satisfying." },
+    { "beat": "12-14s", "label": "Recommend", "visual": "Person talking directly to camera. Authentic.", "text": "If you struggle with [problem], try this.", "audio": "Music softens. Trust-building." },
+    { "beat": "14-15s", "label": "CTA", "visual": "Product shot + link", "text": "Link in bio.", "audio": "Subtle stinger. End." }
+  ],
+  "cta": "Link in Bio",
+  "sound_direction": "Minimal, natural. No heavy production. Room ambience with subtle positive bed. Trust-building, not salesy.",
+  "export_notes": "1080p, 9:16, H.264. Handheld feel preferred. Natural lighting. No filters. Real setting. Captions included for sound-off viewing.",
+  "client_usage": "Replace subject and product visuals. Replace script text with your customer's story. Keep the natural feel — don't over-polish."
+}

@@ -1,0 +1,18 @@
+{
+  "template_name": "Product Drop",
+  "niche": "Fashion, Beauty, E-commerce",
+  "use_case": "Product reveal, launch hype, scarcity",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "clip_count": 4,
+  "timeline": [
+    { "beat": "0-1s", "label": "Hook", "visual": "Close-up product texture or logo flash", "text": "It's here.", "audio": "Brand sound tag (3s)" },
+    { "beat": "1-3s", "label": "Reveal", "visual": "Full product reveal — slow pan or zoom out", "text": "The [Product Name].", "audio": "Music bed starts softly" },
+    { "beat": "3-6s", "label": "Desire", "visual": "Product in use — lifestyle shot, model wearing it", "text": "Designed for [audience desire].", "audio": "Music builds to peak" },
+    { "beat": "6-8s", "label": "CTA", "visual": "Product centered with price/countdown", "text": "Shop now. Before it's gone.", "audio": "Music fade out. Stinger." }
+  ],
+  "cta": "Shop Now",
+  "sound_direction": "Confident bass drop at hook. Rhythmic build during desire phase. Clean stinger at CTA.",
+  "export_notes": "1080p, 9:16, H.264. Keep text 100px from top and bottom edges. Loop-safe if used on Reels.",
+  "client_usage": "Replace visuals with your product. Replace text with your brand copy. Replace sound with your Brand Sound Pack."
+}
