@@ -130,6 +130,41 @@
             letter-spacing: -0.03em;
         }
 
+        .nav-logo-img {
+            height: 28px;
+            width: auto;
+            transition: filter 0.3s;
+        }
+
+        .logo:hover .nav-logo-img {
+            filter: brightness(1.2);
+        }
+
+        .hero-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-logo-img {
+            width: 120px;
+            height: auto;
+            opacity: 0;
+            transform: rotateY(15deg) scale(0.92);
+            animation: logoSettle 1.5s ease-out 0.2s forwards;
+        }
+
+        @keyframes logoSettle {
+            0% { opacity: 0; transform: rotateY(15deg) scale(0.92); }
+            100% { opacity: 1; transform: rotateY(0deg) scale(1); }
+        }
+
+        .loader-logo-img {
+            width: 72px;
+            height: auto;
+            opacity: 0;
+            transform: rotateY(15deg) scale(0.9);
+            animation: logoSettle 1.5s ease-out 0.3s forwards;
+        }
+
         .nav-links {
             display: flex;
             gap: 1.5rem;
@@ -824,23 +859,23 @@
             .sound-wave-bar { animation: none; }
             .logo-track { animation: none; }
             .hero::after { animation: none; opacity: 0.3; }
+            .hero-logo-img { animation: none; opacity: 1; transform: none; }
+            .loader-logo-img { animation: none; opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
 
     <div class="loader" id="loader">
-        <div class="loader-wave">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="loader-logo">
+            <img src="assets/outworld_logo_white.svg" alt="Outworld Creative logo" class="loader-logo-img">
         </div>
     </div>
 
     <nav>
-        <a href="#" class="logo">Outworld Creative</a>
+        <a href="#" class="logo">
+            <img src="assets/outworld_logo_white.svg" alt="Outworld Creative logo" class="nav-logo-img">
+        </a>
         <div class="nav-links">
             <a href="#spec-lab">Spec Ad Lab</a>
             <a href="#brand-sound">Brand Sound</a>
@@ -850,6 +885,9 @@
     </nav>
 
     <section class="hero">
+        <div class="hero-logo">
+            <img src="assets/outworld_logo_white.svg" alt="Outworld Creative logo" class="hero-logo-img">
+        </div>
         <div class="waveform">
             <div class="wave-bar"></div>
             <div class="wave-bar"></div>
