@@ -24,6 +24,48 @@
             --border-light: #333333;
         }
 
+        /* Loader */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-wave {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .loader-wave .bar {
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: loaderWave 0.8s ease-in-out infinite;
+        }
+
+        .loader-wave .bar:nth-child(1) { height: 12px; animation-delay: 0s; }
+        .loader-wave .bar:nth-child(2) { height: 24px; animation-delay: 0.1s; }
+        .loader-wave .bar:nth-child(3) { height: 36px; animation-delay: 0.2s; }
+        .loader-wave .bar:nth-child(4) { height: 24px; animation-delay: 0.3s; }
+        .loader-wave .bar:nth-child(5) { height: 12px; animation-delay: 0.4s; }
+
+        @keyframes loaderWave {
+            0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -395,6 +437,22 @@
         .spec-card:hover {
             border-color: var(--accent);
             transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(229, 57, 53, 0.08);
+        }
+
+        .spec-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(229,57,53,0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .spec-card:hover .spec-visual::before {
+            opacity: 1;
         }
 
         .spec-visual {
@@ -688,9 +746,31 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .loader { display: none; }
+            .wave-bar { animation: none; }
+            .logo-track { animation: none; }
+        }
     </style>
 </head>
 <body>
+
+    <div class="loader" id="loader">
+        <div class="loader-wave">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
 
     <nav>
         <a href="#" class="logo">Outworld Creative</a>
@@ -1140,6 +1220,13 @@
     </footer>
 
     <script>
+        // Remove loader when page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 400);
+        });
+
         // Scroll reveal animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

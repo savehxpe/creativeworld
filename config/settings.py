@@ -17,6 +17,7 @@ DB_PATH = os.path.join(DATA_DIR, "leads.db")
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
 LANDING_DIR = os.path.join(BASE_DIR, "landing_page")
 ASSETS_DIR = os.path.join(BASE_DIR, "assets")
+SKILLS_DIR = os.path.join(BASE_DIR, "skills")
 
 # API Keys
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
