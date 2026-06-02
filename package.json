@@ -8,6 +8,8 @@
     "lib": "lib"
   },
   "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && cp -R landing_page/* dist/",
+    "preview": "python3 -m http.server 8000 --directory dist",
     "test": "playwright test",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
