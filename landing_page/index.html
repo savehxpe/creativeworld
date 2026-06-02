@@ -157,6 +157,22 @@
             position: relative;
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(229,57,53,0.08), transparent 60%),
+                radial-gradient(circle at 70% 40%, rgba(229,57,53,0.05), transparent 50%);
+            pointer-events: none;
+            animation: heroGlow 12s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
         .waveform {
             width: 200px;
             height: 60px;
@@ -256,6 +272,28 @@
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             overflow: hidden;
+            position: relative;
+        }
+
+        .logo-section::before,
+        .logo-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .logo-section::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-primary), transparent);
+        }
+
+        .logo-section::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-primary), transparent);
         }
 
         .logo-section-header {
@@ -574,6 +612,33 @@
             text-align: center;
         }
 
+        .sound-wave {
+            display: flex;
+            gap: 3px;
+            justify-content: center;
+            align-items: flex-end;
+            height: 40px;
+            margin-bottom: 2rem;
+        }
+
+        .sound-wave-bar {
+            width: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: soundPulse 1.6s ease-in-out infinite;
+        }
+
+        .sound-wave-bar:nth-child(1) { height: 20%; animation-delay: 0s; }
+        .sound-wave-bar:nth-child(2) { height: 40%; animation-delay: 0.2s; }
+        .sound-wave-bar:nth-child(3) { height: 80%; animation-delay: 0.4s; }
+        .sound-wave-bar:nth-child(4) { height: 100%; animation-delay: 0.6s; }
+        .sound-wave-bar:nth-child(5) { height: 60%; animation-delay: 0.8s; }
+
+        @keyframes soundPulse {
+            0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
         .brand-sound-section-inner {
             max-width: 600px;
             margin: 0 auto;
@@ -756,7 +821,9 @@
             }
             .loader { display: none; }
             .wave-bar { animation: none; }
+            .sound-wave-bar { animation: none; }
             .logo-track { animation: none; }
+            .hero::after { animation: none; opacity: 0.3; }
         }
     </style>
 </head>
@@ -799,7 +866,7 @@
         </div>
         <h1>Outworld Creative</h1>
         <p class="hero-subtitle">Video ads and brand sound for brands that need people to stop scrolling.</p>
-        <p class="hero-body">We create short-form ads, jingles, UGC scripts, launch visuals and campaign ideas for restaurants, fashion brands, hotels, events, beauty brands and digital products.</p>
+        <p class="hero-body">We make short-form ads, jingles, content ideas and campaign visuals for brands that want to be seen, heard and remembered.</p>
         <a href="#contact" class="cta-button">Request a Creative Diagnosis</a>
         <p class="founder-line">Built from music, culture and brand storytelling.</p>
         <p class="tagline">Built from Africa. Designed for the world.</p>
@@ -850,29 +917,29 @@
     <section id="services">
         <div class="section-header">
             <h2>What We Create</h2>
-            <p>Three systems that make brands harder to ignore and easier to remember.</p>
+            <p></p>
         </div>
         <div class="services-grid">
             <div class="service-category"><h3>Video Ads</h3></div>
             <div class="service-card">
                 <h3>5-Second Hooks</h3>
-                <p>Bumper-style grabs that capture attention before the thumb moves. Pattern interrupts, visual shocks, instant desire triggers.</p>
+                <p>Short hooks that stop the scroll in under 3 seconds.</p>
             </div>
             <div class="service-card">
                 <h3>15-Second Social Ads</h3>
-                <p>Full narrative arcs compressed into the format that performs on feeds and Stories. Story, offer, CTA — all in 15 seconds.</p>
+                <p>Short ads with a clear story, offer, and CTA — all in 15 seconds.</p>
             </div>
             <div class="service-card">
                 <h3>UGC-Style Scripts</h3>
-                <p>Scripts that feel like a friend made them, not a boardroom. Authentic, raw, conversion-focused.</p>
+                <p>Scripts that feel like a friend made them, not a boardroom.</p>
             </div>
             <div class="service-card">
                 <h3>Launch Videos</h3>
-                <p>Drop campaigns, collection launches, event hype builds — visual systems that make launches feel like moments.</p>
+                <p>Drop campaigns, collection launches, event hype — made to feel like moments.</p>
             </div>
             <div class="service-card">
                 <h3>Campaign Visuals</h3>
-                <p>Mood-matched ad visuals with clear art direction, lighting rules, and platform-specific adaptations.</p>
+                <p>Ad visuals with clear art direction, lighting rules, and platform adaptations.</p>
             </div>
             <div class="service-card">
                 <h3>Product Desire Ads</h3>
@@ -882,41 +949,41 @@
             <div class="service-category"><h3>Brand Sound</h3></div>
             <div class="service-card">
                 <h3>5-Second Brand Tags</h3>
-                <p>Audio identity — your brand's sound in 5 seconds. Recognizable before the logo appears.</p>
+                <p>Your brand's sound in 5 seconds. Recognizable before the logo appears.</p>
             </div>
             <div class="service-card">
                 <h3>15-Second Ad Jingles</h3>
-                <p>Original sound beds for campaigns. Memorable, ownable, designed for repeat exposure.</p>
+                <p>Short, memorable sounds built for repeat exposure.</p>
             </div>
             <div class="service-card">
                 <h3>Sounds for Reels & TikTok</h3>
-                <p>Platform-native sound kits that work with algorithms, not against them. Your audio, not a trending borrow.</p>
+                <p>Your audio, not a trending sound from someone else.</p>
             </div>
             <div class="service-card">
                 <h3>Product Reveal Sounds</h3>
-                <p>Sonic punctuation for product drops. Build anticipation, deliver impact, close with memory.</p>
+                <p>Short sounds that build excitement, deliver impact, close with memory.</p>
             </div>
             <div class="service-card">
                 <h3>Launch Sounds</h3>
-                <p>Campaign-specific sound design that ties every piece of launch content together sonically.</p>
+                <p>Sound design that ties every piece of a launch together.</p>
             </div>
             <div class="service-card">
                 <h3>Campaign Music Ideas</h3>
-                <p>Mood-matched music direction and sonic world-building for multi-ad campaigns.</p>
+                <p>Mood-matched music ideas for multi-ad campaigns.</p>
             </div>
 
             <div class="service-category"><h3>Creative Direction</h3></div>
             <div class="service-card">
                 <h3>Campaign Concepts</h3>
-                <p>Monthly campaign themes with creative direction, moodboards, shot lists, and platform strategy.</p>
+                <p>Monthly campaign themes, moodboards, shot lists, and platform direction.</p>
             </div>
             <div class="service-card">
                 <h3>Ad Scripts</h3>
-                <p>Hook banks, caption frameworks, content calendars, and posting systems that remove the guesswork.</p>
+                <p>Hook banks, caption frameworks, and content calendars that remove the guesswork.</p>
             </div>
             <div class="service-card">
                 <h3>Content Systems</h3>
-                <p>Recurring content formats, brand world rules, and visual guidelines that make every piece feel premium.</p>
+                <p>Recurring formats and visual rules that make every piece feel premium.</p>
             </div>
             <div class="service-card">
                 <h3>Spec Ad Previews</h3>
@@ -924,11 +991,11 @@
             </div>
             <div class="service-card">
                 <h3>Launch Strategy</h3>
-                <p>Timeline, rollout plan, multi-platform adaptation, and performance KPIs for launches.</p>
+                <p>Timeline, rollout plan, and platform adaptations for launches.</p>
             </div>
             <div class="service-card">
                 <h3>Monthly Retainers</h3>
-                <p>Ongoing creative department for brands that need consistent premium creative without hiring full-time.</p>
+                <p>Ongoing creative direction for brands that need it month after month.</p>
             </div>
         </div>
     </section>
@@ -941,7 +1008,7 @@
         <div class="spec-lab-inner">
             <div class="section-header">
                 <h2>Spec Ad Lab</h2>
-                <p>Campaign concepts showing how brands can turn attention into demand. Spec creative direction by Outworld Creative.</p>
+                <p>Ad ideas built to show what a brand could look and sound like with stronger direction.</p>
             </div>
             <div class="spec-grid">
                 
@@ -1131,8 +1198,15 @@
 
     <section class="brand-sound-section" id="brand-sound">
         <div class="brand-sound-section-inner">
+            <div class="sound-wave">
+                <div class="sound-wave-bar"></div>
+                <div class="sound-wave-bar"></div>
+                <div class="sound-wave-bar"></div>
+                <div class="sound-wave-bar"></div>
+                <div class="sound-wave-bar"></div>
+            </div>
             <h2>Most brands have visuals.<br>Very few have a sound.</h2>
-            <p>We create short, memorable sounds for ads, product drops, Reels, TikToks, launches and campaigns.</p>
+            <p>We create short sounds for ads, product drops, Reels, TikToks and campaigns.</p>
             <ul class="sound-list">
                 <li>5-second brand tags</li>
                 <li>15-second ad jingles</li>
@@ -1149,7 +1223,7 @@
         <div class="signal-desk-inner">
             <div class="section-header">
                 <h2>Signal Desk</h2>
-                <p>Daily intelligence for brands, creators, and businesses trying to understand where attention, ads, sound, and culture are moving.</p>
+                <p>Simple notes on ads, culture, AI, music and what brands should pay attention to.</p>
             </div>
             <div class="pillars-grid">
                 <div class="pillar-card">
@@ -1210,8 +1284,8 @@
     </section>
 
     <section class="cta-section" id="contact">
-        <h2>For Brand Work</h2>
-        <p>If your brand needs sharper creative direction, let's talk. No packages. No generic proposals. Just a conversation about where you are and where you could be.</p>
+        <h2>Want sharper ads?</h2>
+        <p>Request a Creative Diagnosis.</p>
         <a href="mailto:team@outworldcreative.com" class="email-link">team@outworldcreative.com</a>
     </section>
 

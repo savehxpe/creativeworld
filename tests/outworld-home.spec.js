@@ -64,7 +64,7 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
 
   test('10. CTA section exists', async ({ page }) => {
     await page.goto('/');
-    const section = page.getByText('For Brand Work');
+    const section = page.getByText('Want sharper ads?');
     await expect(section).toBeVisible();
   });
 
