@@ -2,6 +2,8 @@
 node_modules/
 outputs/kie/*
 !outputs/kie/.gitkeep
+outputs/suno/*
+!outputs/suno/.gitkeep
 __pycache__/
 *.pyc
 .DS_Store
