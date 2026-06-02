@@ -1,0 +1,13 @@
+# Sample batch file for Outworld Lead Engine
+# Add one Instagram handle per line (with or without @)
+# Lines starting with # are ignored
+
+# Musicians / Artists
+local_artist_sa
+amapiano_producer_012
+hiphop_mogul_jhb
+
+# Clothing Brands
+streetwear_pretoria
+custom_threads_sa
+urban_label_cpt
