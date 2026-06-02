@@ -1,6 +1,7 @@
 .env
 node_modules/
-outputs/kie/
+outputs/kie/*
+!outputs/kie/.gitkeep
 __pycache__/
 *.pyc
 .DS_Store
