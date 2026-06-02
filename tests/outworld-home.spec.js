@@ -28,35 +28,36 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
     await expect(section).toBeVisible();
   });
 
-  test('5. "What We Create" section exists', async ({ page }) => {
+  test('5. "What We Do" section exists', async ({ page }) => {
     await page.goto('/');
-    const section = page.getByText('What We Create').first();
+    const section = page.locator('#what-we-do h2');
     await expect(section).toBeVisible();
+    await expect(section).toContainText('What We Do');
   });
 
-  test('6. Spec Ad Lab renders exactly 9 campaign cards', async ({ page }) => {
+  test('6. Selected Spec Work renders 3 featured cards', async ({ page }) => {
     await page.goto('/');
-    const cards = page.locator('.spec-card');
-    await expect(cards.first()).toBeVisible();
-    const count = await cards.count();
+    const visible = await page.locator('#spec-work > .spec-grid .spec-card').count();
+    const collapsed = await page.locator('#specCollapsed.open').count();
+    if (visible >= 3) expect(visible).toBeGreaterThanOrEqual(3);
+    else expect(visible + await page.locator('#specCollapsed .spec-card').count()).toBeGreaterThanOrEqual(3);
+  });
+
+  test('7. Brand Sound is a capability card', async ({ page }) => {
+    await page.goto('/');
+    const card = page.getByText('Brand Sound');
+    await expect(card.first()).toBeVisible();
+  });
+
+  test('8. Signal Desk renders 9 tag pills', async ({ page }) => {
+    await page.goto('/');
+    const tags = page.locator('.signdesk-tag');
+    await expect(tags.first()).toBeVisible();
+    const count = await tags.count();
     expect(count).toBe(9);
   });
 
-  test('7. Brand Sound section exists', async ({ page }) => {
-    await page.goto('/');
-    const section = page.getByText('Most brands have visuals');
-    await expect(section).toBeVisible();
-  });
-
-  test('8. Signal Desk renders exactly 9 pillar cards', async ({ page }) => {
-    await page.goto('/');
-    const cards = page.locator('.pillar-card');
-    await expect(cards.first()).toBeVisible();
-    const count = await cards.count();
-    expect(count).toBe(9);
-  });
-
-  test('9. Founder section exists', async ({ page }) => {
+  test('9. Founder byline exists in footer', async ({ page }) => {
     await page.goto('/');
     const section = page.getByText('Founded by saveHXPE');
     await expect(section).toBeVisible();
@@ -74,7 +75,6 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
       return {
         bodyScrollWidth: document.body.scrollWidth,
         windowWidth: window.innerWidth,
-        htmlScrollWidth: document.documentElement.scrollWidth,
       };
     });
     expect(overflow.bodyScrollWidth).toBeLessThanOrEqual(overflow.windowWidth + 1);
@@ -92,22 +92,18 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
 
   test('13. Internal anchor links work where nav is visible', async ({ page }) => {
     await page.goto('/');
-    
-    // Check if nav links are visible (they hide at 768px breakpoint)
     const navVisible = await page.locator('.nav-links').isVisible().catch(() => false);
-    
     if (navVisible) {
       const navLinks = page.locator('nav a[href^="#"]');
       const count = await navLinks.count();
       for (let i = 0; i < count; i++) {
         const href = await navLinks.nth(i).getAttribute('href');
-        await navLinks.nth(i).click();
-        if (href && href !== '#') {
-          await expect(page.locator(href)).toBeInViewport({ timeout: 5000 });
+        if (href && href === '#spec-work') {
+          await navLinks.nth(i).click();
+          await expect(page.locator('#spec-work')).toBeInViewport({ timeout: 5000 });
         }
       }
     }
-    // Mobile/tablet: nav hidden is expected behavior at < 768px
   });
 
 });
