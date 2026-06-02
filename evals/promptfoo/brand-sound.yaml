@@ -1,0 +1,28 @@
+# Brand Sound Eval
+description: "Checks Outworld brand sound outputs for clarity, niche fit, and originality"
+prompts:
+  - "Create a 5-second sonic logo direction for a luxury restaurant."
+  - "Design a 15-second ad jingle for a South African streetwear brand."
+  - "Outline a campaign sound bed strategy for a boutique hotel."
+tests:
+  - type: model-graded-closedqa
+    rubric:
+      - label: "clarity"
+        weight: 1
+        test: "Is the sound direction understandable without being a musician? Simple, evocative language."
+      - label: "niche-fit"
+        weight: 1
+        test: "Does the sound direction match the niche? Restaurant = warm/appetizing. Fashion = confident/trendy."
+      - label: "originality"
+        weight: 1
+        test: "Is this direction specific to this brand? Not 'generic upbeat corporate jingle.'"
+      - label: "executable"
+        weight: 1
+        test: "Could a producer actually create this from the description? Specific enough."
+      - label: "not-technical"
+        weight: 1
+        test: "Avoids technical music jargon that would confuse a brand owner. No 'diminished 7th chords' unless explained simply."
+      - label: "memory-focused"
+        weight: 1
+        test: "Does the sound direction explain how it creates memory? Recognizability is the goal."
+    expected_score: 0.85

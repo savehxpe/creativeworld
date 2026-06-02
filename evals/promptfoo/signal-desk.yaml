@@ -1,0 +1,31 @@
+# Signal Desk Eval
+description: "Checks Outworld Signal Desk content for factual accuracy, usefulness, and clarity"
+prompts:
+  - "Write a Signal Desk X post about why brand sound matters for recognition."
+  - "Create a comparison post: small brand vs big brand posting strategy."
+  - "Break down why a recent ad campaign succeeded in stopping the scroll."
+tests:
+  - type: model-graded-closedqa
+    rubric:
+      - label: "clear"
+        weight: 1
+        test: "Understandable in one reading. No academic or overly complex language."
+      - label: "useful"
+        weight: 1
+        test: "Does the reader learn something they can apply? Not just 'interesting.'"
+      - label: "factual"
+        weight: 1
+        test: "Claims are supported by logic or publicly verifiable information."
+      - label: "not-generic"
+        weight: 1
+        test: "Not 'branding is important' or 'content is king' level generic. Specific insight."
+      - label: "no-conspiracy"
+        weight: 0
+        test: "Contains no secret control, occult, or unnamed-power-group language. FAIL if found."
+      - label: "no-hype"
+        weight: 1
+        test: "Calm, confident tone. No 'this will change everything' or 'the secret to.'"
+      - label: "has-soft-cta"
+        weight: 0.5
+        test: "Soft CTA is present but not pushy. Bonus, not required."
+    expected_score: 0.85

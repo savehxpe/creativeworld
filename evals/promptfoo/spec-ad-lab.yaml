@@ -1,0 +1,40 @@
+# Spec Ad Lab Eval
+description: "Checks Outworld spec ad outputs for clarity, usefulness, and brand fit"
+prompts:
+  - "Generate a spec ad concept for a Johannesburg restaurant struggling with weekend bookings."
+  - "Create a 5-second ad hook for a South African fashion brand launching a new collection."
+  - "Build a complete spec ad brief for a Cape Town boutique hotel."
+tests:
+  - type: model-graded-closedqa
+    rubric:
+      - label: "clarity"
+        weight: 1
+        test: "Is the concept understandable in one reading? No jargon or overcomplicated language."
+      - label: "usefulness"
+        weight: 1
+        test: "Could a brand actually use this? Is it actionable, not theoretical?"
+      - label: "specificity"
+        weight: 1
+        test: "Is the concept tailored to the niche and market? Not generic copy-paste."
+      - label: "no-generic-claims"
+        weight: 1
+        test: "Avoids vague claims like 'we make you look good' or 'next level content.'"
+      - label: "has-business-outcome"
+        weight: 1
+        test: "Includes a clear business outcome. Not just creative for creativity's sake."
+      - label: "no-overexplaining"
+        weight: 1
+        test: "Concise. No walls of text. Client-ready."
+      - label: "no-fake-claims"
+        weight: 0
+        test: "Contains no false statistics, made-up case studies, or unverifiable results. FAIL the entire eval if false claims are found."
+      - label: "no-conspiracy"
+        weight: 0
+        test: "Contains no secret control, occult, or unnamed-power-group language. FAIL the entire eval if found."
+      - label: "no-prices"
+        weight: 0
+        test: "Contains no pricing information. FAIL if prices are mentioned."
+      - label: "no-bot-automation-language"
+        weight: 0
+        test: "Contains no 'AI bot,' 'automation,' or 'we use AI to do everything' language. FAIL if found."
+    expected_score: 0.85
