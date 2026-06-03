@@ -1,5 +1,6 @@
 dist/
 landing_page/assets/video/outworld-cloud-portal-source.mp4
+landing_page/assets/video/outworld-scroll-hero-source.mp4
 .env
 node_modules/
 outputs/kie/*
