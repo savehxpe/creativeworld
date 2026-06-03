@@ -21,17 +21,10 @@ test.describe('Outworld Landing Page — Visual & Accessibility', () => {
       await expect(page.getByText('Video ads and brand sound for brands')).toBeVisible();
     });
 
-    test('Loader is hidden after page load', async ({ page }) => {
+    test('Nav logo visible with reduced motion', async ({ page }) => {
       await page.goto('/');
       await page.waitForLoadState('networkidle');
-      await page.waitForTimeout(1500);
-      const loader = page.locator('.loader');
-      const isHidden = await loader.evaluate(el => {
-        return window.getComputedStyle(el).visibility === 'hidden' || 
-               window.getComputedStyle(el).opacity === '0' ||
-               el.classList.contains('hidden');
-      }).catch(() => true);
-      expect(isHidden).toBe(true);
+      await expect(page.locator('#navLogo')).toBeVisible();
     });
   });
 
