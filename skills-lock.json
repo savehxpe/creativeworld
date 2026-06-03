@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "context7-cli": {
+      "source": "upstash/context7",
+      "sourceType": "github",
+      "skillPath": "skills/context7-cli/SKILL.md",
+      "computedHash": "6077b3c638fb7efb31d9b2c815436650de4aef73e7b671edec2f1c63f6a1e105"
+    },
+    "soultrace": {
+      "source": "soultrace-ai/soultrace-skill",
+      "sourceType": "github",
+      "skillPath": "skills/soultrace/SKILL.md",
+      "computedHash": "2cceda69901d52d71525010da52a88b11cbcea3611af91e5e0c250605daa7268"
+    }
+  }
+}

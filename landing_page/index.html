@@ -125,6 +125,14 @@
         .proof-trust-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dim); margin-bottom: 32px; display: block; }
         .proof-trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 16px; max-width: 800px; margin: 0 auto; }
 
+        /* Problems */
+        .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 40px; }
+        .problem-card { padding: 36px 32px; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: border-color 0.3s; }
+        .problem-card:hover { border-color: rgba(201,168,76,0.2); }
+        .problem-num { font-size: 10px; letter-spacing: 0.2em; color: var(--gold); opacity: 0.6; margin-bottom: 20px; }
+        .problem-pain { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 10px; line-height: 1.3; color: var(--white); }
+        .problem-solve { font-size: 12px; line-height: 1.7; color: var(--dim); font-weight: 300; }
+
         /* Deliverables */
         .deliverables-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 40px; }
         .deliverable-card { padding: 36px 28px; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: background 0.4s, border-color 0.4s; display: flex; flex-direction: column; }
@@ -172,20 +180,15 @@
         .scroll-indicator { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,242,238,0.25); opacity: 0; animation: fadeUp 1s 1.8s forwards; }
         .hero-progress-line { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); z-index: 200; width: 0%; opacity: 0.6; pointer-events: none; }
 
-        /* Dice-flip logo carousel */
-        .logo-dice-container { perspective: 800px; display: flex; gap: 24px; justify-content: center; margin: 60px auto 40px; }
-        .logo-die { width: 200px; height: 120px; position: relative; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-        .logo-die.no-transition { transition: none !important; }
-        .logo-die.flip-x { transform: rotateX(180deg); }
-        .logo-die.flip-x-alt { transform: rotateX(-180deg); }
-        .logo-die.flip-x.delay-0 { transition-delay: 0ms; }
-        .logo-die.flip-x.delay-1 { transition-delay: 100ms; }
-        .logo-die.flip-x.delay-2 { transition-delay: 200ms; }
-        .logo-die.flip-x.delay-3 { transition-delay: 300ms; }
-        .logo-die-face { position: absolute; inset: 0; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: var(--glass-bg); border: 1px solid var(--glass-border); }
-        .logo-die-face img { width: 150px; height: auto; max-height: 80px; object-fit: contain; opacity: 0.75; transition: opacity 0.3s; }
-        .logo-die:hover .logo-die-face img { opacity: 1; }
-        .logo-die-back { transform: rotateX(180deg); }
+        /* Logo stage */
+        .logo-stage-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .logo-stage-simple { width: 280px; height: 160px; margin: 60px auto 40px; border: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; }
+        .logo-stage-simple img { width: 200px; height: auto; max-height: 100px; object-fit: contain; opacity: 0.8; transition: opacity 0.5s, transform 0.5s; }
+        .logo-stage-simple img.enter { opacity: 0; transform: scale(1.08); }
+        .logo-stage-simple:hover img { opacity: 1; }
+        .logo-grid-fallback { display: none; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 16px; margin-top: 40px; width: 100%; max-width: 700px; }
+        .logo-grid-item { padding: 24px; border: 1px solid var(--glass-border); background: var(--glass-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-grid-item img { width: 80px; height: auto; opacity: 0.5; }
 
         /* Animations */
         @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
@@ -202,9 +205,8 @@
 
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-            .logo-stage { display: none; }
+            .logo-stage-simple { display: none; }
             .logo-grid-fallback { display: grid !important; }
-            .logo-dice-container { display: none !important; }
             #bgCanvas { opacity: 0.3; }
             .reveal { opacity: 1; transform: none; transition: none; }
             .hero-progress-line { display: none; }
@@ -215,12 +217,10 @@
             nav { padding: 20px 6vw; }
             .nav-right a:not(.nav-pill) { display: none; }
             section { padding: 80px 6vw; }
-            .proof-real-grid, .deliverables-grid, .proof-grid, .services-grid { grid-template-columns: 1fr; }
+            .proof-real-grid, .deliverables-grid, .problems-grid, .services-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; gap: 12px; text-align: center; }
-            .logo-dice-container { gap: 8px; }
-            .logo-die { width: 78px; height: 50px; }
-            .logo-dice-container { gap: 6px; }
-            .logo-die-face img { width: 56px; max-height: 30px; }
+            .logo-stage-simple { width: 220px; height: 120px; }
+            .logo-stage-simple img { width: 140px; max-height: 70px; }
         }
     </style>
     <script>
@@ -376,61 +376,73 @@
             { src: "assets/brand/appearances/channelO.webp", alt: "Channel O" },
             { src: "assets/brand/appearances/trace.webp", alt: "Trace" },
             { src: "assets/brand/appearances/hnhh.webp", alt: "HNHH" },
+            { src: "assets/brand/more/boominati.webp", alt: "Boominati Worldwide" },
+            { src: "assets/brand/more/a24.webp", alt: "A24" },
+            { src: "assets/brand/more/sony-publishing.webp", alt: "Sony Music Publishing" },
+            { src: "assets/brand/more/spotify.webp", alt: "Spotify" },
+            { src: "assets/brand/more/freebandz.webp", alt: "Freebandz" },
+            { src: "assets/brand/more/radical.webp", alt: "Radical" },
         ];
 
         function LogoStage() {
-            const [currentSet, setCurrentSet] = useState([0, 1, 2, 3]);
-            const [flipPattern, setFlipPattern] = useState(0);
-            const [flipping, setFlipping] = useState(false);
-            const [noTransition, setNoTransition] = useState(false);
+            const [index, setIndex] = useState(0);
+            const [enter, setEnter] = useState(false);
+            const intervalRef = useRef(null);
+            const paused = useRef(false);
+
+            const advance = useCallback(() => {
+                setEnter(true);
+                setTimeout(() => {
+                    setIndex(prev => (prev + 1) % ALL_LOGOS.length);
+                    setEnter(false);
+                }, 400);
+            }, []);
 
             useEffect(() => {
-                const interval = setInterval(() => {
-                    if (flipping) return;
-                    setFlipping(true);
-                    setTimeout(() => {
-                        setNoTransition(true);
-                        setFlipping(false);
-                        setCurrentSet(prev => prev.map(i => (i + 4) % ALL_LOGOS.length));
-                        setFlipPattern(p => (p + 1) % 3);
-                        setTimeout(() => setNoTransition(false), 50);
-                    }, 700);
-                }, 2000);
-                return () => clearInterval(interval);
-            }, [flipping]);
+                intervalRef.current = setInterval(() => {
+                    if (!paused.current) advance();
+                }, 3000);
+                return () => clearInterval(intervalRef.current);
+            }, [advance]);
 
-            const getFlipClass = (index) => {
-                if (!flipping) return '';
-                switch (flipPattern) {
-                    case 0: return 'flip-x';
-                    case 1: return `flip-x delay-${index}`;
-                    case 2: return index % 2 === 0 ? 'flip-x' : 'flip-x-alt';
-                    default: return '';
-                }
-            };
+            const onHover = (p) => { paused.current = p; };
+            const logo = ALL_LOGOS[index];
 
-            return <section id="logo-stage" className="logo-stage-container">
-                <div className="section-label">Platforms, partners &amp; appearances</div>
-                <h2 className="section-title">Creative work leaves<br/><em>a mark.</em></h2>
-                <div className="logo-dice-container" id="logoDiceContainer">
-                    {currentSet.map((logoIdx, dieIdx) => {
-                        const logo = ALL_LOGOS[logoIdx];
-                        const nextLogo = ALL_LOGOS[(logoIdx + 4) % ALL_LOGOS.length];
-                        const flipClass = getFlipClass(dieIdx);
-                        return (
-                            <div key={dieIdx} className={`logo-die ${flipClass} ${noTransition ? 'no-transition' : ''}`}>
-                                <div className="logo-die-face logo-die-front">
-                                    <img src={logo.src} alt={logo.alt} decoding="async" width="120" height="60" />
-                                </div>
-                                <div className="logo-die-face logo-die-back">
-                                    <img src={nextLogo.src} alt={nextLogo.alt} decoding="async" width="120" height="60" />
-                                </div>
-                            </div>
-                        );
-                    })}
+            return <div className="logo-stage-container">
+                <div className="logo-stage-simple"
+                    onClick={advance}
+                    onMouseEnter={() => onHover(true)}
+                    onMouseLeave={() => onHover(false)}
+                    role="button" aria-label="Advance logo carousel" tabIndex="0">
+                    <img src={logo.src} alt={logo.alt} decoding="async" width="200" height="100" className={enter?'enter':''} />
                 </div>
                 <div className="logo-grid-fallback">
                     {ALL_LOGOS.map((l,i) => <div key={i} className="logo-grid-item"><img src={l.src} alt={l.alt} decoding="async" width="80" height="40" /></div>)}
+                </div>
+            </div>;
+        }
+
+        const PROBLEMS = [
+            { pain:'People scroll past the ad', solve:'We build short-form ads around hooks, rhythm and visual tension.' },
+            { pain:'The creative gets tired', solve:'We turn one campaign into multiple angles, edits and formats.' },
+            { pain:'The brand has no memory', solve:'We build repeatable visual and sound cues people can recognize.' },
+            { pain:'The content feels forced', solve:'We create UGC-style concepts that feel natural to the platform.' },
+            { pain:'The idea does not travel', solve:'We shape campaigns for local culture and global attention.' },
+            { pain:'The post leads nowhere', solve:'We connect every asset to a launch, booking, drop or clear next step.' },
+        ];
+
+        function ProblemsSection() {
+            return <section id="problems">
+                <div className="section-label reveal">The Problems We Solve</div>
+                <h2 className="section-title reveal reveal-delay-1">Most brands do not need<br/>more random content. They need<br/>ideas people <em>notice, remember</em> and act on.</h2>
+                <div className="problems-grid reveal reveal-delay-2">
+                    {PROBLEMS.map((p,i) => (
+                        <div key={i} className="problem-card">
+                            <div className="problem-num">{`0${i+1}`}</div>
+                            <div className="problem-pain">{p.pain}</div>
+                            <p className="problem-solve">{p.solve}</p>
+                        </div>
+                    ))}
                 </div>
             </section>;
         }
@@ -457,9 +469,7 @@
                 </div>
                 <div className="proof-trust reveal reveal-delay-3">
                     <span className="proof-trust-label">Platforms, partners &amp; appearances</span>
-                    <div className="proof-trust-grid">
-                        {ALL_LOGOS.map((l,i) => <div key={i} className="logo-grid-item"><img src={l.src} alt={l.alt} decoding="async" width="60" height="30" /></div>)}
-                    </div>
+                    <LogoStage />
                 </div>
             </section>;
         }
@@ -554,6 +564,8 @@
                 <div id="heroProgressLine" className="hero-progress-line"></div>
                 <Navbar />
                 <Hero />
+                <div className="h-divider"></div>
+                <ProblemsSection />
                 <div className="h-divider"></div>
                 <ProofSection />
                 <div className="h-divider"></div>

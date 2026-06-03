@@ -87,9 +87,9 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
     await page.goto('/');
     await page.waitForTimeout(2000);
     await expect(page.locator('#proof')).toBeVisible();
-    const imgs = await page.locator('#proof img').evaluateAll(els => els.map(el => el.src));
+    const imgs = await page.locator('#proof .proof-real-card img').evaluateAll(els => els.map(el => el.src));
     const unique = new Set(imgs);
-    expect(unique.size).toBe(imgs.length); // no duplicates
+    expect(unique.size).toBe(imgs.length); // no duplicates in proof cards
   });
 
   test('12. Deliverables section has exactly 3 cards', async ({ page }) => {
@@ -98,6 +98,23 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
     await expect(page.locator('#deliverables')).toBeVisible();
     const cards = page.locator('#deliverables .deliverable-card');
     await expect(cards).toHaveCount(3);
+  });
+
+  test('13. Problems section exists with exactly 6 cards', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForTimeout(2000);
+    await expect(page.locator('#problems')).toBeVisible();
+    const cards = page.locator('#problems .problem-card');
+    await expect(cards).toHaveCount(6);
+  });
+
+  test('14. Logo carousel exists and shows a visible logo', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForTimeout(2000);
+    const carousel = page.locator('.logo-stage-simple');
+    await expect(carousel).toBeVisible();
+    const img = carousel.locator('img');
+    await expect(img.first()).toBeVisible();
   });
 
 });
