@@ -83,4 +83,21 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
     expect(display).toBe('none');
   });
 
+  test('11. Proof section exists with no duplicated images', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForTimeout(2000);
+    await expect(page.locator('#proof')).toBeVisible();
+    const imgs = await page.locator('#proof img').evaluateAll(els => els.map(el => el.src));
+    const unique = new Set(imgs);
+    expect(unique.size).toBe(imgs.length); // no duplicates
+  });
+
+  test('12. Deliverables section has exactly 3 cards', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForTimeout(2000);
+    await expect(page.locator('#deliverables')).toBeVisible();
+    const cards = page.locator('#deliverables .deliverable-card');
+    await expect(cards).toHaveCount(3);
+  });
+
 });
