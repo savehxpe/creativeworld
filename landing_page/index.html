@@ -58,7 +58,7 @@
         #bgCanvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
         /* Nav */
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 28px 10vw; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 28px 10vw; background: linear-gradient(to bottom, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 60%, transparent 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .nav-logo-img { height: 28px; width: auto; }
         .nav-right { display: flex; gap: 36px; align-items: center; }
         .nav-right a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.3s; }
@@ -78,6 +78,7 @@
 
         /* Section base */
         section { position: relative; z-index: 10; padding: 120px 10vw; }
+        section:first-of-type { padding-top: clamp(120px, 14vh, 160px); }
         .section-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 60px; display: flex; align-items: center; gap: 12px; }
         .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
         .section-title { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(32px, 4.5vw, 60px); line-height: 1.1; margin-bottom: 16px; }
@@ -154,7 +155,7 @@
         footer { position: relative; z-index: 10; padding: 32px 10vw; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: 0.14em; color: var(--dim-light); text-transform: uppercase; }
 
         /* Scroll-scrubbed hero */
-        #hero { position: relative; z-index: 10; height: 180vh; }
+        #hero { position: relative; z-index: 10; min-height: 100vh; }
         .hero-sticky-viewport { position: sticky; top: 0; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .hero-scroll-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; pointer-events: none; }
         .hero-overlay { position: absolute; inset: 0; z-index: 1; background: radial-gradient(ellipse at center, rgba(5,5,5,0.45) 0%, rgba(5,5,5,0.88) 100%); pointer-events: none; }
@@ -173,7 +174,7 @@
         .logo-die { width: 160px; height: 100px; position: relative; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
         .logo-die.no-transition { transition: none !important; }
         .logo-die.flip-x { transform: rotateX(180deg); }
-        .logo-die.flip-y { transform: rotateY(180deg); }
+        .logo-die.flip-x-alt { transform: rotateX(-180deg); }
         .logo-die.flip-x.delay-0 { transition-delay: 0ms; }
         .logo-die.flip-x.delay-1 { transition-delay: 100ms; }
         .logo-die.flip-x.delay-2 { transition-delay: 200ms; }
@@ -287,12 +288,10 @@
                     }
                 };
                 const onScroll = () => {
-                    const hero = document.getElementById('hero');
-                    if (!hero || !v.duration) return;
-                    const rect = hero.getBoundingClientRect();
-                    const heroHeight = hero.offsetHeight;
-                    const viewH = window.innerHeight;
-                    const progress = Math.max(0, Math.min(1, (-rect.top) / (heroHeight - viewH)));
+                    if (!v.duration) return;
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const progress = docHeight > 0 ? Math.max(0, Math.min(1, scrollTop / docHeight)) : 0;
                     targetTime = progress * v.duration;
                     const line = document.getElementById('heroProgressLine');
                     if (line) line.style.width = `${progress * 100}%`;
@@ -389,7 +388,7 @@
                 switch (flipPattern) {
                     case 0: return 'flip-x';
                     case 1: return `flip-x delay-${index}`;
-                    case 2: return index % 2 === 0 ? 'flip-x' : 'flip-y';
+                    case 2: return index % 2 === 0 ? 'flip-x' : 'flip-x-alt';
                     default: return '';
                 }
             };
@@ -421,28 +420,33 @@
         }
 
         const PROOF_CARDS = [
-            { type:'video', title:'Product Launch Reel', desc:'15s hook-first structure for fashion brand.' },
-            { type:'video', title:'Brand Sonic Identity', desc:'6s audio logo concept for tech startup.' },
-            { type:'video', title:'Reels Campaign', desc:'3-part story arc for a beverage drop.' },
-            { type:'visual', title:'Campaign Key Visual', desc:'Streetwear collection — minimal gold palette.' },
-            { type:'visual', title:'Promo Graphics System', desc:'Social-first design for music release.' },
-            { type:'visual', title:'Event Launch Identity', desc:'Bold, minimal, built for motion.' },
+            { title:'Product Launch Reel', desc:'15s hook-first structure for fashion brand.', video:'assets/video/spec-launch-reel.webm', poster:'assets/video/outworld-scroll-hero-poster.jpg' },
+            { title:'Brand Sonic Identity', desc:'6s audio logo concept for tech startup.', video:'assets/video/spec-sonic-identity.webm', poster:'assets/video/outworld-scroll-hero-poster.jpg' },
+            { title:'Reels Campaign', desc:'3-part story arc for a beverage drop.', video:'assets/video/spec-reels-campaign.webm', poster:'assets/video/outworld-scroll-hero-poster.jpg' },
+            { title:'Campaign Key Visual', desc:'Streetwear collection — minimal gold palette.', img:'assets/spec-work/fashion-product-drop.webp' },
+            { title:'Promo Graphics System', desc:'Social-first design for music release.', img:'assets/spec-work/fintech-app-sound.webp' },
+            { title:'Event Launch Identity', desc:'Bold, minimal, built for motion.', img:'assets/spec-work/restaurant-hospitality.webp' },
         ];
 
         function ProofSection() {
-            return <section id="proof">
-                <div className="section-label reveal">Proof of Work</div>
+            return         <section id="proof">
+                <div className="section-label reveal">Selected Work</div>
                 <h2 className="section-title reveal reveal-delay-1">Direction you<br/>can <em>see.</em></h2>
                 <div className="proof-grid reveal reveal-delay-2">
                     {PROOF_CARDS.map((c,i) => (
                         <div key={i} className="proof-card">
-                            <div className="proof-thumb" style={{ background: `linear-gradient(${145+i*5}deg, #${['0a0a0a','080808','0a0806','060606','080808','06080a'][i]}, #${['10100a','100e06','0c0c0a','0e0c0a','0c0c0a','0a0c10'][i]}, #${['0a0a06','080808','0a0806','080606','080606','060608'][i]})` }}>
-                                {c.type==='video'?<><div className="proof-thumb-icon">▶</div><div className="proof-thumb-lines"><span></span><span></span><span></span></div></>
-                                :<div className="proof-thumb-icon" style={{opacity:0.1,fontSize:'48px'}}>{['◈','◉','◬'][i-3]}</div>}
+                            <div className="proof-thumb">
+                                {c.video ? (
+                                    <video muted playsinline loop preload="metadata" poster={c.poster} style={{width:'100%',height:'100%',objectFit:'cover'}} onMouseEnter={e=>e.target.play()} onMouseLeave={e=>{e.target.pause();e.target.currentTime=0;}}>
+                                        <source src={c.video} type="video/webm" />
+                                    </video>
+                                ) : c.img ? (
+                                    <img src={c.img} alt={c.title} decoding="async" style={{width:'100%',height:'100%',objectFit:'cover',opacity:0.85}} />
+                                ) : (
+                                    <><div className="proof-thumb-icon">▶</div><div className="proof-thumb-lines"><span></span><span></span><span></span></div></>
+                                )}
                             </div>
-                            <span className={`proof-tag ${c.type==='video'?'video-tag':''}`}>{c.type==='video'?'Video':'Visual'}</span>
                             <div className="proof-overlay">
-                                <div className="proof-label">Spec Creative Direction — Outworld Creative</div>
                                 <div className="proof-desc">{c.title} — {c.desc}</div>
                             </div>
                         </div>
@@ -487,7 +491,7 @@
                     <span style={{height:'14px',animationDelay:'0.35s'}}></span>
                     <span style={{height:'8px',animationDelay:'0.05s'}}></span>
                 </div>
-                <h2 className="cta-headline reveal">Want <em>sharper</em><br/>ads?</h2>
+                <h2 className="cta-headline reveal">Ideas that<br/><em>stick.</em></h2>
                 <div className="cta-actions reveal reveal-delay-1">
                     <a href="mailto:team@outworldcreative.com" className="btn-primary">Request a Creative Diagnosis</a>
                     <a href="mailto:team@outworldcreative.com" className="cta-email-link">team@outworldcreative.com</a>

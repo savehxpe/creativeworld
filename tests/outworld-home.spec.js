@@ -18,8 +18,8 @@ test.describe('Outworld Landing Page — Functional Tests', () => {
     await page.waitForTimeout(2000);
     await expect(page.locator('.hero-headline')).toContainText('Outworld Creative');
     await expect(page.locator('.hero-email')).toContainText('team@outworldcreative.com');
-    await expect(page.locator('#final-cta')).toContainText('Want sharper');
-    await expect(page.locator('#final-cta')).toContainText('ads?');
+    await expect(page.locator('#final-cta')).toContainText('Ideas that');
+    await expect(page.locator('#final-cta')).toContainText('stick');
     await expect(page.locator('.hero-cta')).toContainText('Request a Creative Diagnosis');
   });
 
